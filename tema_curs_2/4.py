@@ -1,13 +1,9 @@
-data1=input("STRING 1:")
-data2=input("STRING 2:")
-if (len(data1)>len(data2)):
-    data1, data2= data2, data1
-
-for i in range(len(data2)):
-    count1=data1.count(data1[i])
-    count2=data2.count(data2[i])
-    if count1!=count2:
-        print('anagrame')
-        break
-else:
-    print("neanagrame")
+# care este cauza pentru x-1?
+# simplu, calculam care este gradul celui mai semnificativ bit din reprezentarea binara
+x=129
+x=x-1
+cnt=0
+while x:
+    cnt=cnt+1
+    x=x>>1
+print(f"Raspuns: {2**cnt}")
