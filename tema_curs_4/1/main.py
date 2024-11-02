@@ -1,17 +1,7 @@
-import os
-INPUTLOCATION=__file__[0:-7]+'ocr.in'
-# OUTPUTLOCATION=__file__[0:-7]+'rime.txt'
-# input=open(INPUTLOCATION,'r')
-# output=open(OUTPUTLOCATION,'w')
-content=open(INPUTLOCATION,'r').read().split('\\n');
-answ=[]
-for line in content:
-    formattedString=line.replace('+','').replace('\n','').replace("\"",'').strip();
-    if (formattedString):
-        word=formattedString.split(':')[0];
-        tildas=formattedString.count('~')
-        occurances=formattedString.count(word)
-        score=tildas+occurances
-        item=(word,score)
-        answ.append(item)
-print(answ)
+import random
+file=open('tema_curs_4\\1\\input.txt','r')
+out=open('tema_curs_4\\1\\output.txt','w')
+for nume in file.readlines():
+    email=nume.replace(' ','.').lower().strip()+'@myfmi.unibuc.ro'
+    parola= ''.join([chr(random.randint(60,90)) for x in range(4)])+str(random.randint(1000,9999))
+    out.write(email+','+parola+'\n');
